@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <form id="gradeForm">
+        <h1>Grade Calculator</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. 
+            Minima molestias sapiente exercitationem unde, atque aperiam 
+            natus odit facilis molestiae quod itaque neque enim sit, 
+            pariatur possimus est corrupti hic? Similique?</p>
+        <div id="gradeInput">
+            <h3>Enter Subject Grades for</h3>
+            <div>
+                <label for="term">Midterms:</label>
+                <input type="radio" name="term" value="Midterms">
+                <label for="term">Finals:</label>
+                <input type="radio" name="term" value="Finals">
+            </div><br>
+            <div>
+                <label for="term">Quiz:</label>
+                <input type="radio" name="option" value="Quiz">
+                <label for="term">Assignment:</label>
+                <input type="radio" name="option" value="Assignment">
+                <label for="term">Exam:</label>
+                <input type="radio" name="option" value="Exam">
+            </div><br>
+            <div>
+                <label for="grade">Grade:</label>
+                <input type="number" min="0" max="100" placeholder="0 - 100" id="grade">
+                <br>
+                <label for="weight">Weight:</label>
+                <input type="number" min="0" max="100" step="0.01" placeholder="0 - 100" id="weight"> 
+                <span>%</span>
+            </div><br>
+            <input type="submit" value="Calculate">
+        </div>
+    </form>
+    <script src="script.js">
+    </script>
+</body>
+</html>
+
+<!---
+https://nool.ontariotechu.ca/study-skills/grade-calculator/index.php
+inspo for future interface
+-->
