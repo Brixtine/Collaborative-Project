@@ -7,83 +7,313 @@
 body {
     display: flex;
     justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: #f4f4f4;
-    font-family: Arial, sans-serif;
+    align-items: flex-start; /* Align top for longer forms */
+    min-height: 100vh;
+    background-color: #f0f2f5; /* Lighter grey background */
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif; /* Modern font stack */
+    padding: 20px; /* Add padding for smaller screens */
+    line-height: 1.6;
+    color: #333;
+}
+
+.container {
+    width: 100%;
+    max-width: 600px; /* Max width for the form */
+    background-color: white;
+    padding: 30px 40px; /* More padding */
+    border-radius: 12px; /* Softer corners */
+    box-shadow: 0 6px 18px rgba(0, 0, 0, 0.08); /* Subtle shadow */
+    margin-top: 30px; /* Space from top */
+    margin-bottom: 30px; /* Space at bottom */
 }
 
 form {
-    background-color: white;
-    padding: 30px;
-    border-radius: 15px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    width: 100%;
-    max-width: 80vw;
-    text-align: center;
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Spacing between elements */
 }
 
 h1 {
-    font-size: 28px;
-    margin-bottom: 20px;
-    color: #333;
+    font-size: 2.2em; /* Larger title */
+    margin-bottom: 10px;
+    color: #1a2b4d; /* Dark blue */
+    text-align: center;
+    font-weight: 600;
 }
 
-p {
-    font-size: 14px;
+.instructions {
+    font-size: 0.95em;
     color: #555;
-    margin-bottom: 30px;
+    margin-bottom: 20px;
+    text-align: center;
+    background-color: #eef2f7; /* Light background for instructions */
+    padding: 10px;
+    border-radius: 6px;
+    border: 1px solid #dce1e6;
 }
 
-h3 {
-    margin-bottom: 15px;
+.input-group {
+    display: flex;
+    flex-direction: column; /* Stack label and input */
+    gap: 6px; /* Space between label and input */
+}
+
+label {
+    font-weight: 500; /* Medium weight labels */
+    font-size: 1em;
     color: #333;
 }
 
-input[type="radio"] {
-    margin: 10px 5px;
+input[type="number"] {
+    padding: 12px 15px; /* Comfortable padding */
+    border-radius: 6px;
+    border: 1px solid #ccc;
+    font-size: 1em;
+    width: 100%; /* Full width within container */
+    transition: border-color 0.2s ease, box-shadow 0.2s ease;
 }
 
-input[type="number"], input[type="submit"] {
-    padding: 10px;
-    margin: 10px 0;
-    width: 100%;
-    max-width: 250px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
-    font-size: 16px;
-}
-
-input[type="number"]:focus, input[type="submit"]:focus {
-    border-color: #5d9bff;
+input[type="number"]:focus {
+    border-color: #007bff; /* Blue focus highlight */
+    box-shadow: 0 0 0 3px rgba(0, 123, 255, 0.2); /* Soft focus glow */
     outline: none;
 }
 
-input[type="submit"] {
-    background-color: #5d9bff;
+/* Style for invalid inputs (optional, can be added via JS) */
+input:invalid {
+  border-color: #dc3545; /* Red border for invalid */
+}
+
+button[type="submit"] {
+    padding: 12px 20px;
+    background-color: #007bff; /* Primary blue */
     color: white;
-    font-weight: bold;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
     cursor: pointer;
-    transition: background-color 0.3s;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px; /* Space above button */
 }
 
-input[type="submit"]:hover {
-    background-color: #4a8ef4;
+button[type="submit"]:hover {
+    background-color: #0056b3; /* Darker blue on hover */
 }
 
-#results {
-    margin-top: 30px;
+button[type="submit"]:active {
+    transform: scale(0.98); /* Slight press effect */
 }
 
-#resultList {
-    list-style-type: none;
-    padding-left: 0;
+.results-area {
+    margin-top: 25px;
+    padding: 20px;
+    background-color: #e9f5ff; /* Light blue background for results */
+    border-radius: 8px;
+    border: 1px solid #b8d6f0;
+    text-align: center;
 }
 
-#resultList li {
-    background-color: #f9f9f9;
-    margin-bottom: 10px;
-    padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ddd;
+.results-area h2 {
+    margin-bottom: 15px;
+    color: #0056b3;
+}
+
+.results-area p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.results-area strong {
+    font-weight: 600;
+    color: #004a99;
+}
+
+.results-area .final-grade {
+    font-size: 1.8em;
+    font-weight: bold;
+    color: #007bff; /* Highlight final grade */
+    margin-top: 10px;
+    display: block; /* Make it block for spacing */
+}
+
+/* Add some separation between the two calculator sections */
+.section-divider {
+    border: none;
+    border-top: 2px solid #e0e0e0; /* A slightly thicker, lighter line */
+    margin: 40px 0; /* More vertical space */
+}
+
+/* Styling for the goal section */
+.goal-section {
+    margin-top: 30px; /* Space below the divider */
+    display: flex;
+    flex-direction: column;
+    gap: 18px; /* Consistent spacing */
+}
+
+.goal-section h2 {
+    font-size: 1.8em; /* Slightly smaller than main title */
+    margin-bottom: 5px;
+    color: #1a2b4d;
+    text-align: center;
+    font-weight: 600;
+}
+
+/* Ensure goal section buttons match the main button style */
+#calculateGoalBtn {
+    padding: 12px 20px;
+    background-color: #28a745; /* Green for the goal button */
+    color: white;
+    font-weight: 600;
+    font-size: 1.1em;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.1s ease;
+    margin-top: 10px;
+}
+
+#calculateGoalBtn:hover {
+    background-color: #218838; /* Darker green on hover */
+}
+
+#calculateGoalBtn:active {
+    transform: scale(0.98);
+}
+
+/* Ensure results areas have consistent styling */
+.results-area {
+    margin-top: 20px; /* Consistent top margin */
+    padding: 20px;
+    background-color: #e9f5ff;
+    border-radius: 8px;
+    border: 1px solid #b8d6f0;
+    text-align: center;
+    min-height: 50px; /* Ensure it has some height even when empty */
+}
+
+.results-area h2 { /* Style for the heading within results */
+    margin-bottom: 15px;
+    color: #0056b3;
+    font-size: 1.4em;
+}
+
+.results-area p {
+    margin-bottom: 8px;
+    font-size: 1.1em;
+    color: #333;
+}
+
+.results-area strong {
+    font-weight: 600;
+    color: #004a99;
+}
+
+.results-area .final-grade,
+.results-area .required-grade { /* Style for highlighted grades */
+    font-size: 1.7em;
+    font-weight: bold;
+    color: #007bff;
+    margin-top: 10px;
+    display: block;
+}
+.results-area .required-grade.impossible {
+     color: #dc3545; /* Red for impossible */
+}
+.results-area .required-grade.achieved {
+     color: #28a745; /* Green for achieved */
+}
+
+/* Error styling consistency */
+.error-area {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #f8d7da;
+    border: 1px solid #f5c6cb;
+    color: #721c24;
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+    min-height: 30px; /* Ensure it has some height even when empty */
+}
+
+/* Add error class for inputs (optional but good UX) */
+.input-error {
+    border-color: #dc3545 !important; /* Make sure it overrides default focus */
+    box-shadow: 0 0 0 3px rgba(220, 53, 69, 0.2) !important;
+}
+
+/* Responsive adjustments (ensure goal section elements adjust too) */
+@media (max-width: 768px) {
+    .goal-section h2 {
+        font-size: 1.6em;
+    }
+     #calculateGoalBtn {
+        font-size: 1em;
+     }
+}
+
+@media (max-width: 480px) {
+    .goal-section h2 {
+        font-size: 1.4em;
+    }
+     #calculateGoalBtn {
+        font-size: 0.95em;
+        padding: 10px 12px;
+     }
+    .results-area .final-grade,
+    .results-area .required-grade {
+        font-size: 1.4em;
+    }
+}
+
+.error-area {
+    margin-top: 15px;
+    padding: 10px 15px;
+    background-color: #f8d7da; /* Light red for errors */
+    border: 1px solid #f5c6cb;
+    color: #721c24; /* Dark red text */
+    border-radius: 6px;
+    text-align: center;
+    font-weight: 500;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .container {
+        padding: 25px 20px;
+    }
+    h1 {
+        font-size: 1.8em;
+    }
+}
+
+@media (max-width: 480px) {
+    body {
+        padding: 10px;
+    }
+    .container {
+        padding: 20px 15px;
+    }
+    h1 {
+        font-size: 1.6em;
+    }
+    input[type="number"], button[type="submit"] {
+        font-size: 0.95em;
+        padding: 10px 12px;
+    }
+     button[type="submit"] {
+        font-size: 1em;
+     }
+    .results-area {
+        padding: 15px;
+    }
+     .results-area p {
+        font-size: 1em;
+    }
+    .results-area .final-grade {
+        font-size: 1.5em;
+    }
 }
